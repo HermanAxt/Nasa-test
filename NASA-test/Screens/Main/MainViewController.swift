@@ -20,8 +20,8 @@ class MainViewController: UIViewController {
     configureNavigationBar()
     configureTableView()
     fetcher.photoUpdated = {
-      image, index in
-      if let cell: ItemTableViewCell = self.tableView.cellForRow(at: index) as? ItemTableViewCell {
+      [weak self] image, index in
+      if let cell: ItemTableViewCell = self?.tableView.cellForRow(at: index) as? ItemTableViewCell {
         cell.set(image: image)
         
       }
